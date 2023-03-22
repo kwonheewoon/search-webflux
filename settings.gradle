@@ -1,0 +1,6 @@
+rootProject.name = 'search'
+include 'common-module'
+include 'domain-module'
+include 'search-module'
+
+
