@@ -1,5 +1,14 @@
 # 블로그(카카오, 네이버) 검색 서비스 : 권희운
 
+### 카카오, 네이버 블로그 검색 API
+```c
+ 1. application-common.yml api.blog.main 의 값에 따른 KakaoBlogSearchService, 
+    NaverBlogSearchService 구현체 의존성 전략 주입
+ 2. main API의 서버 오류등 호출이 불가 할 겨우 지정된 횟수만큼 재시도
+ 3. 재시도 실패시 대체 API 재호출
+ 4. 호출 성공시 query=검색어 의 검색횟수 증가 메소드 호출
+```
+
 ## 사용 외부 라이브러리
 lombok : Java의 라이브러리로 반복되는 메소드를 Annotation을 사용해서 자동으로 작성해주는 라이브러리 \
 mapstruct : Java bean 유형 간의 매핑 구현을 단순화하는 코드 생성기 
@@ -64,15 +73,6 @@ java -jar ./build/libs/search-module-0.0.1-SNAPSHOT.jar --spring.profiles.active
 ## API 명세서
 ### Swagger Ui : http://localhost:8080/swagger-ui/index.html
 
-
-### 카카오, 네이버 블로그 검색 API
-```c
- 1. application-common.yml api.blog.main 의 값에 따른 KakaoBlogSearchService, 
-    NaverBlogSearchService 구현체 의존성 전략 주입
- 2. main API의 서버 오류등 호출이 불가 할 겨우 지정된 횟수만큼 재시도
- 3. 재시도 실패시 대체 API 재호출
- 4. 호출이 성공시 query=검색어 의 검색횟수 증가
-```
 
 GET : localhost:8080/search/blog?query=검색어&sort=recency&page=1&size=10
 ```c
