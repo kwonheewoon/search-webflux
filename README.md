@@ -4,6 +4,12 @@
 lombok : Java의 라이브러리로 반복되는 메소드를 Annotation을 사용해서 자동으로 작성해주는 라이브러리 \
 mapstruct : Java bean 유형 간의 매핑 구현을 단순화하는 코드 생성기 
 
+## jar 파일 위치
+/search-module.jar
+
+## 서버 구동 방법
+java -jar /search-module.jar --spring.profiles.active=dev
+
 ## 빌드 방법
 WORK_DIR :  search-module
 
@@ -11,7 +17,7 @@ jar 파일 빌드 \
 ./gradlew build
 
 
-## 서버 구동 방법
+## 빌드 후 서버 구동 방법
 빌드된 jar 파일 실행 \
 java -jar ./build/libs/search-module-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
 
