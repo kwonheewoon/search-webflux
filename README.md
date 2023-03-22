@@ -22,6 +22,39 @@ jar 파일 빌드 \
 java -jar ./build/libs/search-module-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
 
 
+##코드레벨 평가항목 구현사항
+```c
+-Spring Boot 기능 활용
+    1.application-common.yml api.blog.main 의 값에 따른 KakaoBlogSearchService, 
+        NaverBlogSearchService 구현체 의존성 전략 주입
+    2.application-coom.yml의 api 설정값을 @ConfigurationProperties으로 설정값을 읽어
+        PropertiesConfig 객체로 관리
+        카카오, 네이버 API의 파라미터 쿼리 KEY, VALUE를 추상화 하려는 의도
+
+-테스트 케이스
+    1.search-module/src/test/io/khw/search/blogsearch 패키지 하위
+        BlogSearchRestController, BlogSearchServiceTest 단위 테스트 작성
+    2.search-module/src/test/io/khw/search/popularsearchkeyword 패키지 하위 
+        popularsearchkeywordService 단위 테스트 작성
+    3.search-module/src/test/io/khw/search/webclientTest 패키지 하위
+        WebTestClient를 사용한 API 반환값 검증 테스트 작성
+        
+-에러처리
+    1.common-module/src/java/io/khw/common/exeception
+        ControllerAdvice 예외 핸들링 소스 작성
+        ApiException 예외처리 메소드
+        400 BAD_REQUEST 예외처리 메소드(ex) @RequestParam의 값 미존재시 발생)
+        404 NotFound 예외처리 메소드
+        RuntimeException 예외처리 메소드 작성
+
+-불필요한 코드의 존재 여부
+    1.최대한 불필요한 코드의 작성을 삼가하였으며
+    2.WebClientCallManager, PopularSearchKeywordService
+        의 소스와 같이 가독성 향상 및 재사용성을 위하여 함수 단위로 소스 작성 노력
+
+```
+
+
 ## API 명세서
 ### Swagger Ui : http://localhost:8080/swagger-ui/index.html
 
