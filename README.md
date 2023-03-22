@@ -13,7 +13,7 @@ jar 파일 빌드 \
 
 ## 서버 구동 방법
 빌드된 jar 파일 실행 \
-java -jar ./build/libs/search-module-0.0.1-SNAPSHOT.jar
+java -jar ./build/libs/search-module-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
 
 
 ## API 명세서
