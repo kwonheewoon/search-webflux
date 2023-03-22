@@ -1,4 +1,4 @@
-# 블로그 검색 서비스 : 권희운
+# 블로그(카카오, 네이버) 검색 서비스 : 권희운
 
 ## 사용 외부 라이브러리
 lombok : Java의 라이브러리로 반복되는 메소드를 Annotation을 사용해서 자동으로 작성해주는 라이브러리 \
@@ -21,6 +21,12 @@ jar 파일 빌드 \
 빌드된 jar 파일 실행 \
 java -jar ./build/libs/search-module-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
 
+## 모듈 구조(Gradle 기반 멀티모듈 환경)
+```c 
+ㄴsearch-module : 비지니스 로직 포함 모듈
+ㄴㄴdomain-module : Entity, Dto, Vo, Reposotiry 포함 모듈
+ㄴㄴㄴcommon-module : 공통으로 사용 가능한 Config, Enum, Exception, ControllerAdvice 혹은 Util성 객체 포함 모듈
+```
 
 ##코드레벨 평가항목 구현사항
 ```c
