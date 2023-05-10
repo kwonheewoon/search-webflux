@@ -3,13 +3,7 @@ spring:
     console:
       enabled: true
       path: /h2-console
-  jpa:
-    open-in-view: true
-    hibernate:
-      ddl-auto: create
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    show-sql: true
+      port: 8078
   datasource:
     hikari:
       cachePrepStmts: true
@@ -69,8 +63,8 @@ spring:
   config:
     activate:
       on-profile: local
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:searchDB;DB_CLOSE_DELAY=-1
+  r2dbc:
+    initialization-mode: always
+    url: r2dbc:h2:mem:///searchR2DB;DB_CLOSE_DELAY=-1
     username: sa
     password:

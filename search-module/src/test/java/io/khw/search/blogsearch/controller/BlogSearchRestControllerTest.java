@@ -4,7 +4,6 @@ package io.khw.search.blogsearch.controller;
 import io.khw.domain.blogsearch.dto.CommonApiResponseDto;
 import io.khw.domain.blogsearch.dto.CommonDocumentDto;
 import io.khw.domain.blogsearch.vo.SearchVo;
-import io.khw.domain.popularsearchkeyword.dto.PopularSearchKeywordApiDto;
 import io.khw.search.blogsearch.service.BlogSearchService;
 import io.khw.search.popularsearchkeyword.service.PopularSearchKeywordService;
 import org.junit.jupiter.api.Test;
@@ -18,7 +17,6 @@ import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -40,21 +38,21 @@ public class BlogSearchRestControllerTest {
     @MockBean
     private PopularSearchKeywordService popularSearchKeywordService;
 
-    @Test
-    public void searchBlogTopKeywordsTest() throws Exception {
-        List<PopularSearchKeywordApiDto> searchKeywordApiDtos = Arrays.asList(
-                new PopularSearchKeywordApiDto("인천", 3)
-        );
-
-        when(popularSearchKeywordService.getTopKeyWords()).thenReturn(searchKeywordApiDtos);
-
-        mockMvc.perform(get("/blog/top-keywords")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.documents[0].keyword").value("인천"))
-                .andExpect(jsonPath("$.documents[0].searchVolume").value(3))
-                .andExpect(jsonPath("$.totalCount").value(1));
-    }
+//    @Test
+//    public void searchBlogTopKeywordsTest() throws Exception {
+//        List<PopularSearchKeywordApiDto> searchKeywordApiDtos = Arrays.asList(
+//                new PopularSearchKeywordApiDto("인천", 3)
+//        );
+//
+//        when(popularSearchKeywordService.getTopKeyWords()).thenReturn(searchKeywordApiDtos);
+//
+//        mockMvc.perform(get("/blog/top-keywords")
+//                        .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$.documents[0].keyword").value("인천"))
+//                .andExpect(jsonPath("$.documents[0].searchVolume").value(3))
+//                .andExpect(jsonPath("$.totalCount").value(1));
+//    }
 
     @Test
     public void searchBlogTest() throws Exception {

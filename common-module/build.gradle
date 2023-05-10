@@ -1,6 +1,6 @@
 dependencies {
-    api 'org.springframework.boot:spring-boot-starter-data-jpa:3.0.4'
-    api 'org.springframework.boot:spring-boot-starter-web:3.0.4'
+    api 'org.springframework.boot:spring-boot-starter-data-r2dbc:3.0.4'
+//    api 'org.springframework.boot:spring-boot-starter-web:3.0.4'
     api 'org.springframework.boot:spring-boot-starter-webflux:3.0.4'
 
     api 'org.hibernate.validator:hibernate-validator:8.0.0.Final'
@@ -18,7 +18,9 @@ dependencies {
     api group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.0.3'
     api group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.15'
 
-    runtimeOnly 'com.h2database:h2:2.1.214'
+
+    implementation group: 'io.r2dbc', name: 'r2dbc-h2', version: '1.0.0.RELEASE'
+    implementation 'com.h2database:h2:2.1.214'
 
 
     annotationProcessor (

@@ -11,6 +11,7 @@ dependencies {
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
     testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
+    implementation group: 'io.projectreactor.tools', name: 'blockhound', version: '1.0.8.RELEASE'
 
 }
 

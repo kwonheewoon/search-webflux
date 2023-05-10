@@ -40,5 +40,10 @@ server:
 logging:
   level:
     root: INFO
+    org.springframework.r2dbc.core: debug
+
+blockhound:
+  integration:
+    enabled: true
 
 
